@@ -1,0 +1,32 @@
+{
+  "name": "youmusic",
+  "version": "1.0.0",
+  "description": "music player based on youtube",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack",
+    "dev": "webpack-dev-server --mode development --open",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "build:watch": "webpack -w",
+    "build:prod": "webpack -p"
+  },
+  "author": "Zikelir",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.52",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
