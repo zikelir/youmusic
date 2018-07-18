@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "music player based on youtube",
   "main": "index.js",
+  "proxy": "http://localhost:5000/",
   "scripts": {
     "start": "webpack",
     "dev": "webpack-dev-server --mode development --open",
