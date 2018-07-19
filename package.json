@@ -2,9 +2,10 @@
   "name": "youmusic",
   "version": "1.0.0",
   "description": "music player based on youtube",
-  "main": "index.js",
+  "main": "./node_server/server.js",
+  "proxy": "http://localhost:5000/",
   "scripts": {
-    "start": "webpack",
+    "start": "node ./node_server/server.js",
     "dev": "webpack-dev-server --mode development --open",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
@@ -15,7 +16,8 @@
   "license": "ISC",
   "dependencies": {
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "express": "^4.16.3"
   },
   "devDependencies": {
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.52",
@@ -27,6 +29,7 @@
     "babel-preset-react": "^6.24.1",
     "webpack": "^4.15.1",
     "webpack-cli": "^3.0.8",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-server": "^3.1.4",
+    "nodemon": "^1.18.3"
   }
 }
