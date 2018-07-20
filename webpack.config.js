@@ -8,6 +8,9 @@ module.exports = {
     path: path.resolve(__dirname, './client/dist/'),
     filename: 'bundle.js'
   },
+  devServer: {
+    contentBase: "./client/dist",
+  },
   module: {
     rules: [
       {
@@ -16,6 +19,10 @@ module.exports = {
         use: {
           loader: "babel-loader"
         }
+      },
+      {    
+        test: /\.scss$/,
+        use: ['style-loader','css-loader','sass-loader']
       }
     ]
   }

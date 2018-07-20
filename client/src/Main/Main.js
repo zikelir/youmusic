@@ -4,7 +4,7 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div>sdadasdasd</div>
+      <div>adada</div>
     );
   }
 }
