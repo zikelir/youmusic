@@ -1,0 +1,19 @@
+import React from 'react';
+
+class Header extends React.Component {
+  render() {
+
+    return (
+      <div className="header">
+        <div className="header__menu-area">
+          <div className="header__sandwich-menu"></div>
+          <div className="header__sandwich-menu"></div>
+          <div className="header__sandwich-menu"></div>
+        </div>
+        <div className="header__title">Motionfy</div>
+      </div>
+    );
+  }
+}
+
+export default Header;
