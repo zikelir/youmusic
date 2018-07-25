@@ -1,13 +1,13 @@
 import React from 'react';
 
-class Playlists extends React.Component {
+class Home extends React.Component {
   render() {
     return (
       <div>
-        Playlists 
+        Home 
       </div>
     );
   }
 }
 
-export default Playlists;
+export default Home;
