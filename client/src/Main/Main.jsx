@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from '../Header/Header.jsx';
+// Import routing components
+import {Router, Route} from 'react-router';
 
 class Main extends React.Component {
   render() {
-    const a = ['E','T','L'];
     return (
       <div>
         <Header />
-        {a.map(item => { return <div>{[...a]}</div> })}
       </div>
     );
   }
