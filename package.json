@@ -2,23 +2,26 @@
   "name": "youmusic",
   "version": "1.0.0",
   "description": "music player based on youtube",
-  "main": "./node_server/server.js",
+  "main": "./server/server.js",
   "scripts": {
-    "start": "node ./node_server/server.js",
+    "start": "node ./server/server.js",
     "dev": "webpack-dev-server --mode development --open",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "build:watch": "webpack -w",
     "build:prod": "webpack -p"
   },
+  "proxy": "http://localhost:8080",
   "author": "Zikelir",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.52",

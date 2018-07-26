@@ -12,7 +12,7 @@ class Header extends React.Component {
           <div className="header__sandwich-menu"></div>
           <div className="header__sandwich-menu"></div>
         </div>
-        <div className="header__title">Motionfy</div>}
+        <div className="header__title">Motionfy</div>
       </div>
     );
   }

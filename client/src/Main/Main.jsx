@@ -11,7 +11,7 @@ class Main extends React.Component {
       <div>
         <Header />
           <Route exact path="/" component={Home}/>
-          <Route path="/playlists" component={Playlists}/>
+          <Route exact path="/playlists" component={Playlists}/>
       </div>
     );
   }
