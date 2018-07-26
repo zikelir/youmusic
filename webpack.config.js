@@ -10,6 +10,7 @@ module.exports = {
   },
   devServer: {
     contentBase: "./client/dist",
+    historyApiFallback: true
   },
   module: {
     rules: [
