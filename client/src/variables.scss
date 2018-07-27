@@ -6,18 +6,42 @@ $pr-white: #fff;
 $pr-purple: #542583;
 
 // distances
-$pd-xs-small: 4px;
-$pd-small: 8px;
-$pd-medium: 16px;
-$pd-large: 24px;
-$pd-xl-large: 48px;
+// $pd-xs-small: 4px;
+// $pd-small: 8px;
+// $pd-medium: 16px;
+// $pd-large: 24px;
+// $pd-xl-large: 48px;
+$pd-xs-small: .4rem;
+$pd-small: .8rem;
+$pd-medium: 1.6rem;
+$pd-large: 2.4rem;
+$pd-xl-large: 4.8rem;
 
-$mr-xs-small: 4px;
-$mr-small: 8px;
-$mr-medium: 16px;
-$mr-large: 24px;
-$mr-xl-large: 48px;
+// $mr-xs-small: 4px;
+// $mr-small: 8px;
+// $mr-medium: 16px;
+// $mr-large: 24px;
+// $mr-xl-large: 48px;
+$mr-xs-small: .4rem;
+$mr-small: .8rem;
+$mr-medium: 1.6rem;
+$mr-large: 2.4rem;
+$mr-xl-large: 4.8rem;
 
 // fonts
 $ff-title: "Nunito";
 $ff-body: "Nunito";
+
+// base font-size
+html {
+  font-size: 62.5%;
+}
+
+
+// mixins
+
+// Convert PX to EM global function
+// @function px-to-em($px) {
+//   $basepx: 16;
+//   @return ($px/$basepx) + 0em;
+// }
