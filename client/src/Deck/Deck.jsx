@@ -4,7 +4,7 @@ class Deck extends React.Component {
   render() {
     return (
       <div className="deck">
-        <div className="deck__play-button"></div>
+        <div className="deck__button--play"></div>
       </div>
     );
   }
