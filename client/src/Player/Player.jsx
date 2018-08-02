@@ -5,56 +5,45 @@ class Player extends React.Component {
     super(props);
     this.state = {};
   }
-
+  
   componentDidMount() {
-    // 2. This code loads the IFrame Player API code asynchronously.
-    const tag = document.createElement('script');
-
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-    // 3. This function creates an <iframe> (and YouTube player)
-    //    after the API code downloads.
-    let player;
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('player', {
-        height: '360',
-        width: '640',
-        videoId: 'M7lc1UVf-VE',
+    let loadYT;
+    if (!loadYT) {
+      loadYT = new Promise((resolve) => {
+        const tag = document.createElement('script')
+        tag.src = 'https://www.youtube.com/iframe_api'
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag)
+        window.onYouTubeIframeAPIReady = () => resolve(window.YT)
+      })
+    }
+    loadYT.then((YT) => {
+      this.player = new YT.Player(this.youtubePlayerAnchor, {
+        height: this.props.height || 390,
+        width: this.props.width || 640,
+        videoId: this.props.YTid || 'M7lc1UVf-VE',
+        playerVars: { 
+          'autoplay': 0,
+          'controls': 0,
+        },
         events: {
-          'onReady': onPlayerReady,
-          'onStateChange': onPlayerStateChange
+          onStateChange: this.onPlayerStateChange
         }
-      });
-    }
+      })
+    })
+  }
 
-    // 4. The API will call this function when the video player is ready.
-    function onPlayerReady(event) {
-      event.target.playVideo();
-    }
-
-    // 5. The API calls this function when the player's state changes.
-    //    The function indicates that when playing a video (state=1),
-    //    the player should play for six seconds and then stop.
-    let done = false;
-    function onPlayerStateChange(event) {
-      if (event.data == YT.PlayerState.PLAYING && !done) {
-        setTimeout(stopVideo, 6000);
-        done = true;
-      }
-    }
-    
-    function stopVideo() {
-      player.stopVideo();
+  onPlayerStateChange(e) {
+    if (typeof this.props.onStateChange === 'function') {
+      this.props.onStateChange(e)
     }
   }
 
   render() {
     return (
-      <div className="player" id="player">
-        
-      </div>
+      <section className='youtubeComponent-wrapper'>
+        <div ref={(r) => { this.youtubePlayerAnchor = r }}></div>
+      </section>
     );
   }
 }
