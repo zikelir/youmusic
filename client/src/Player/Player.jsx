@@ -4,7 +4,7 @@ class Player extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      player: 0
+      player: null
     };
 
     this.play = this.play.bind(this);
@@ -26,7 +26,7 @@ class Player extends React.Component {
       this.player = new YT.Player(this.youtubePlayerAnchor, {
         height: this.props.height || 390,
         width: this.props.width || 640,
-        videoId: this.props.YTid || 'M7lc1UVf-VE',
+        videoId: this.props.YTid || 'a_cIVRvu2OM',
         playerVars: { 
           'autoplay': 0,
           'controls': 0,
@@ -48,11 +48,11 @@ class Player extends React.Component {
   }
 
   play() {
-    this.state.player !== 0 ? this.state.player.playVideo() : 0;
+    this.state.player !== null ? this.state.player.playVideo() : 0;
   }
 
   pause() {
-    this.state.player !== 0 ? this.state.player.pauseVideo() : 0;
+    this.state.player !== null ? this.state.player.pauseVideo() : 0;
   }
 
   render() {
