@@ -3,9 +3,14 @@ import React from 'react';
 class Player extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      player: 0
+    };
+
+    this.play = this.play.bind(this);
+    this.pause = this.pause.bind(this);
   }
-  
+
   componentDidMount() {
     let loadYT;
     if (!loadYT) {
@@ -29,8 +34,11 @@ class Player extends React.Component {
         events: {
           onStateChange: this.onPlayerStateChange
         }
-      })
-    })
+      });
+      // return window.player = this.player;
+      this.setState({ player: this.player});
+      // console.log(this.state.player);
+    });
   }
 
   onPlayerStateChange(e) {
@@ -39,10 +47,20 @@ class Player extends React.Component {
     }
   }
 
+  play() {
+    this.state.player !== 0 ? this.state.player.playVideo() : 0;
+  }
+
+  pause() {
+    this.state.player !== 0 ? this.state.player.pauseVideo() : 0;
+  }
+
   render() {
     return (
       <section className='youtubeComponent-wrapper'>
         <div ref={(r) => { this.youtubePlayerAnchor = r }}></div>
+        <button onClick={ this.play }>play</button>
+        <button onClick={ this.pause }>pause</button>
       </section>
     );
   }
