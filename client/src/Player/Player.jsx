@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { loadPlayer } from './playerActions';
+import { bindActionCreators } from 'redux';
 
 class Player extends React.Component {
   constructor(props) {
@@ -26,24 +29,27 @@ class Player extends React.Component {
       this.player = new YT.Player(this.youtubePlayerAnchor, {
         height: this.props.height || 390,
         width: this.props.width || 640,
-        videoId: this.props.YTid || 'a_cIVRvu2OM',
         playerVars: { 
           'autoplay': 0,
-          'controls': 0,
+          'controls': 1,
+          'list': 'PLAnnL_sV0acdpmHTymRpj-Mic7e5eMJbj'
         },
-        events: {
-          onStateChange: this.onPlayerStateChange
-        }
+        // events: {
+        //   onStateChange: this.onPlayerStateChange
+        // }
       });
-      // return window.player = this.player;
-      this.setState({ player: this.player});
-      // console.log(this.state.player);
+
+      // call the action to make this global
+      this.props.loadPlayer(this.player);
+      // this.setState({ player: this.player});
+
+
     });
   }
 
-  onPlayerStateChange(e) {
-    if (typeof this.props.onStateChange === 'function') {
-      this.props.onStateChange(e)
+    onPlayerStateChange(e) {
+      if (typeof this.props.onStateChange === 'function') {
+        this.props.onStateChange(e) || null;
     }
   }
 
@@ -66,4 +72,8 @@ class Player extends React.Component {
   }
 }
 
-export default Player;
+const mapDispatchToProps = (dispatch) => {
+ return bindActionCreators({ loadPlayer }, dispatch)
+};
+
+export default connect(null, mapDispatchToProps)(Player);
