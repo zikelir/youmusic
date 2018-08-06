@@ -10,8 +10,8 @@ class Player extends React.Component {
       player: null
     };
 
-    this.play = this.play.bind(this);
-    this.pause = this.pause.bind(this);
+    // this.play = this.play.bind(this);
+    // this.pause = this.pause.bind(this);
   }
 
   componentDidMount() {
@@ -53,20 +53,20 @@ class Player extends React.Component {
     }
   }
 
-  play() {
-    this.state.player !== null ? this.state.player.playVideo() : 0;
-  }
+  // play() {
+  //   this.state.player !== null ? this.state.player.playVideo() : 0;
+  // }
 
-  pause() {
-    this.state.player !== null ? this.state.player.pauseVideo() : 0;
-  }
+  // pause() {
+  //   this.state.player !== null ? this.state.player.pauseVideo() : 0;
+  // }
 
   render() {
     return (
       <section className='youtubeComponent-wrapper'>
         <div ref={(r) => { this.youtubePlayerAnchor = r }}></div>
-        <button onClick={ this.play }>play</button>
-        <button onClick={ this.pause }>pause</button>
+        {/* <button onClick={ this.play }>play</button>
+        <button onClick={ this.pause }>pause</button> */}
       </section>
     );
   }
